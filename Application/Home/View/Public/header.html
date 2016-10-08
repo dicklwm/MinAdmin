@@ -1,0 +1,172 @@
+<!-- 顶部主菜单 -->
+<header class = "main-header">
+
+    <!-- 商标 -->
+    <a href = "index.html" class = "logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class = "logo-mini"><b>ERP</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class = "logo-lg"><b>ERP</b>Admin</span>
+    </a>
+
+    <!-- 顶部菜单 -->
+    <nav class = "navbar navbar-static-top" role = "navigation">
+        <!-- 适配小屏幕时的导航按钮 -->
+        <a href = "#" class = "sidebar-toggle" data-toggle = "offcanvas" role = "button">
+            <span class = "sr-only">Toggle navigation</span>
+        </a>
+        <!-- 右边导航 -->
+        <div class = "navbar-custom-menu">
+            <ul class = "nav navbar-nav">
+                <!-- 消息菜单 -->
+                <li class = "dropdown messages-menu">
+                    <!-- 消息菜单小按钮 -->
+                    <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                        <i class = "fa fa-envelope-o"></i>
+                        <span class = "label label-success">1</span>
+                    </a>
+                    <ul class = "dropdown-menu">
+                        <li class = "header">您有1条信息</li>
+                        <li>
+                            <!-- 点击打开后的列表 -->
+                            <ul class = "menu">
+                                <li><!-- 第一条消息 -->
+                                    <a href = "#">
+                                        <div class = "pull-left">
+                                            <!-- 用户头像 -->
+                                            <img src = "__PUBLIC__/img/user2-160x160.jpg" class = "img-circle"
+                                                 alt = "用户头像">
+                                        </div>
+                                        <!-- 右边的时间 -->
+                                        <h4>
+                                            技术支持
+                                            <small><i class = "fa fa-clock-o"></i> 5分钟前</small>
+                                        </h4>
+                                        <!-- 消息文字，小字体 -->
+                                        <p>Min的Admin</p>
+                                    </a>
+                                </li>
+                                <!-- 结束第一条消息 -->
+                            </ul>
+                            <!-- 结束消息列表 -->
+                        </li>
+                        <li class = "footer"><a href = "#">查看所有信息</a></li>
+                    </ul>
+                </li>
+                <!-- /.messages-menu -->
+
+                <!-- 通知小菜单 -->
+                <li class = "dropdown notifications-menu">
+                    <!-- 通知小菜单的按钮 -->
+                    <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                        <i class = "fa fa-bell-o"></i>
+                        <span class = "label label-warning">1</span>
+                    </a>
+                    <ul class = "dropdown-menu">
+                        <li class = "header">您有1条通知</li>
+                        <li>
+                            <!-- 点击打开后的列表 -->
+                            <ul class = "menu">
+                                <li><!-- 第一条通知 -->
+                                    <a href = "#">
+                                        <i class = "fa fa-users text-aqua"></i>Min的Admin
+                                    </a>
+                                </li>
+                                <!-- 结束通知列表 -->
+                            </ul>
+                        </li>
+                        <li class = "footer"><a href = "#">查看所有通知</a></li>
+                    </ul>
+                </li>
+                <!-- 任务小菜单 -->
+                <li class = "dropdown tasks-menu">
+                    <!-- 任务小菜单的按钮 -->
+                    <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                        <i class = "fa fa-flag-o"></i>
+                        <span class = "label label-danger">1</span>
+                    </a>
+                    <ul class = "dropdown-menu">
+                        <li class = "header">您有1个任务</li>
+                        <li>
+                            <!-- 点击打开后的列表 -->
+                            <ul class = "menu">
+                                <li><!-- 第一条任务 -->
+                                    <a href = "#">
+                                        <!-- 任务的文字描述和进度条 -->
+                                        <h3>
+                                            完成情况：
+                                            <small class = "pull-right">20%</small>
+                                        </h3>
+                                        <!-- 进度条 -->
+                                        <div class = "progress xs">
+                                            <!-- 改变width属性去修改进度 -->
+                                            <div class = "progress-bar progress-bar-aqua" style = "width: 20%"
+                                                 role = "progressbar" aria-valuenow = "20" aria-valuemin = "0"
+                                                 aria-valuemax = "100">
+                                                <span class = "sr-only">20% 完成</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- 结束任务列表 -->
+                            </ul>
+                        </li>
+                        <li class = "footer">
+                            <a href = "#">查看所有任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 用户账号菜单 -->
+                <li class = "dropdown user user-menu">
+                    <!-- 用户菜单按钮 -->
+                    <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                        <!-- 用户头像 -->
+                        <img src = "__PUBLIC__/img/user2-160x160.jpg" class = "user-image" alt = "User Image">
+                        <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                        <!--当达到xs大小的设备大小就只显示头像，把名字隐藏-->
+                        <span class = "hidden-xs">{$Think.session.userName}</span>
+                    </a>
+                    <ul class = "dropdown-menu">
+                        <!-- 在列表里的头像，居中的 -->
+                        <li class = "user-header">
+                            <img src = "__PUBLIC__/img/user2-160x160.jpg" class = "img-circle" alt = "User Image">
+
+                            <p>
+                                {$Think.session.userName} - AdminLTE定制
+                                <small>2016-10-04更新</small>
+                            </p>
+                        </li>
+                        <!-- 头像菜单 -->
+                        <li class = "user-body">
+                            <div class = "row">
+                                <div class = "col-xs-4 text-center">
+                                    <a href = "#">Followers</a>
+                                </div>
+                                <div class = "col-xs-4 text-center">
+                                    <a href = "#">Sales</a>
+                                </div>
+                                <div class = "col-xs-4 text-center">
+                                    <a href = "#">Friends</a>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </li>
+                        <!-- 列表的底部 -->
+                        <li class = "user-footer">
+                            <div class = "pull-left">
+                                <a href = "#" class = "btn btn-default btn-flat">基本信息</a>
+                            </div>
+                            <div class = "pull-right">
+                                <a href = "#" class = "btn btn-default btn-flat">登出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 右边导航条的触发按钮 -->
+                <li>
+                    <a href = "#" data-toggle = "control-sidebar"><i class = "fa fa-gears"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
