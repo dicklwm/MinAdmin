@@ -10,7 +10,7 @@
                 <img src = "__PUBLIC__/img/user2-160x160.jpg" class = "img-circle" alt = "用户头像">
             </div>
             <div class = "pull-left info">
-                <p>{:session('userName')}</p>
+                <p>{:session('userInfo')[0]["u_userName"]}</p>
                 <!-- 状态 -->
                 <a href = "#"><i class = "fa fa-circle text-success"></i> 在线</a>
             </div>

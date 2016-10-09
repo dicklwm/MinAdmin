@@ -6,41 +6,68 @@
  * 描述：登陆控制器
  */
 namespace Home\Controller;
+
 use Think\Controller;
 
-class LoginController extends Controller{
+class LoginController extends Controller {
     //首页显示模板
     public function index(){
         $this->display();
     }
+
     //登陆操作
     public function Login(){
-        if(!IS_POST) $this->error('请先登陆',U('Login/index'));
+        if (!IS_POST) $this->error('请先登陆', U('Login/index'));
         // Get输入的账号和密码
-//        $account = $_POST['account'];
-        $account = "admin";
-//        $password = $_POST['password'];
-        $password = "2";
+        $account = $_POST['account'];
+//        $account = "admin";
+        $password = $_POST['password'];
+//        $password = "2";
         $AfterMd5 = base64_encode(md5($password, true));
-        $User = D('UserView')->where("account= '%s' and pwd= '%s'",array($account,$AfterMd5))->select();
-        if(isset($User)){
-            // 设置session
-            $_SESSION['userId']=$User[0]['id'];
-            $_SESSION['userName']=$User[0]['userName'];
-            $_SESSION["postId"] = $User[0]['postId'];
-            $_SESSION["postName"] = $User[0]['postName'];
-            $_SESSION["orgId"] = $User[0]['orgId'];
-            $_SESSION["orgName"] = $User[0]['orgName'];
-            $this->redirect('index/index');
-        }
-        else{
-            $this->error('用户名或密码错误，请重试',U('Login/index'),5);
+        $result = postToV3WebAPI('LoginComp', 'API_AccPwdIdentityAndLogin',
+            array(
+                'loginAccount' => $account,
+                'loginPassword' => $AfterMd5
+            ));
+        if ($result['success'] == 0) {
+            $this->error('请检查账号密码', U('Login/index'));
+        } else {
+            $userInfo = postToV3WebAPI('vbase_organization', 'OrgChainQueryGeneralRelaForList',
+                array('relaMode' => '1111',
+                    'srcNodeId' => $result['data']['accountId'],
+                    'isForward' => 'False',
+                    'orgFields' => '*',
+                    'postFields' => '*',
+                    'userFields' => '*',
+                    'accountFields' => '*',
+                ));
+            if ($userInfo['success'] == 1) {
+                session('userInfo',$userInfo['data']['resultEntity']);
+                $this->redirect('index/index');
+            } else {
+                $this->error('获取账户信息错误', U('Login/index'));
+            }
         }
     }
 
     public function Logout(){
         session('[destroy]'); // 销毁session
-        $this->success('登出成功',U('Login/index'),3);
+        $this->success('登出成功', U('Login/index'), 3);
     }
+
+    public function test(){
+//        p(postV3WebAPI('vbase_organization', 'OrgChainQueryGeneralRelaForList',
+//            array('relaMode' => '1111',
+//                'srcNodeId' => 'cb7b000d27f0eba241b39e8d3273b342',
+//                'isForward' => 'False',
+//                'orgFields' => '*',
+//                'postFields' => '*',
+//                'userFields' => '*',
+//                'accountFields' => '*',
+//                'postEnable'=>1,
+//            )));
+
+    }
+
 }
 

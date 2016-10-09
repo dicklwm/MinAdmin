@@ -11,4 +11,6 @@ return array(
     'DB_PREFIX' => '',    // 数据库表前缀
 
     'SESSION_AUTO_START'    =>  true,    // 是否自动开启Session
+
+    'WEBAPI_URL' => 'http://localhost:8080/webapi/',        //V3的WebAPI接口的URL地址
 );

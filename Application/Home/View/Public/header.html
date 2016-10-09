@@ -124,7 +124,7 @@
                         <img src = "__PUBLIC__/img/user2-160x160.jpg" class = "user-image" alt = "User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <!--当达到xs大小的设备大小就只显示头像，把名字隐藏-->
-                        <span class = "hidden-xs">{$Think.session.userName}</span>
+                        <span class = "hidden-xs">{:session('userInfo')[0]["u_userName"]}</span>
                     </a>
                     <ul class = "dropdown-menu">
                         <!-- 在列表里的头像，居中的 -->
@@ -132,8 +132,8 @@
                             <img src = "__PUBLIC__/img/user2-160x160.jpg" class = "img-circle" alt = "User Image">
 
                             <p>
-                                {$Think.session.userName} - AdminLTE定制
-                                <small>2016-10-04更新</small>
+                                {:session('userInfo')[0]["u_userName"]} - AdminLTE定制
+                                <small>{:date("Y-m-d")}</small>
                             </p>
                         </li>
                         <!-- 头像菜单 -->

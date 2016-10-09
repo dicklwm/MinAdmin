@@ -178,7 +178,7 @@ desired effect
                         <img src = "/MinAdmin/Public/img/user2-160x160.jpg" class = "user-image" alt = "User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <!--当达到xs大小的设备大小就只显示头像，把名字隐藏-->
-                        <span class = "hidden-xs"><?php echo (session('userName')); ?></span>
+                        <span class = "hidden-xs"><?php echo session('userInfo')[0]["u_userName"];?></span>
                     </a>
                     <ul class = "dropdown-menu">
                         <!-- 在列表里的头像，居中的 -->
@@ -186,8 +186,8 @@ desired effect
                             <img src = "/MinAdmin/Public/img/user2-160x160.jpg" class = "img-circle" alt = "User Image">
 
                             <p>
-                                <?php echo (session('userName')); ?> - AdminLTE定制
-                                <small>2016-10-04更新</small>
+                                <?php echo session('userInfo')[0]["u_userName"];?> - AdminLTE定制
+                                <small><?php echo date("Y-m-d");?></small>
                             </p>
                         </li>
                         <!-- 头像菜单 -->
@@ -236,7 +236,7 @@ desired effect
                 <img src = "/MinAdmin/Public/img/user2-160x160.jpg" class = "img-circle" alt = "用户头像">
             </div>
             <div class = "pull-left info">
-                <p><?php echo session('userName');?></p>
+                <p><?php echo session('userInfo')[0]["u_userName"];?></p>
                 <!-- 状态 -->
                 <a href = "#"><i class = "fa fa-circle text-success"></i> 在线</a>
             </div>
